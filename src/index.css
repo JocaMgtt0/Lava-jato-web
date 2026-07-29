@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Tokens
+   Hierarquia por superfície (não por borda), tipografia SF, cantos generosos.
+   Marca: grafite + laranja âmbar.
+   ========================================================================== */
+
+:root {
+  --duracao-tema: 200ms;
+
+  --raio-sm: 10px;
+  --raio: 14px;
+  --raio-lg: 18px;
+  --raio-xl: 24px;
+  --raio-full: 999px;
+
+  --fonte: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI',
+    system-ui, sans-serif;
+
+  /* Curvas de movimento: rápidas na saída, suaves na chegada */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-suave: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --alt-topbar: 52px;
+  --alt-tabbar: 56px;
+}
+
+/* ---- Escuro (padrão) ---- */
+:root,
+:root[data-tema='escuro'] {
+  --bg: #000000;
+  --superficie: #1c1c1e;
+  --superficie-2: #2c2c2e;
+  --superficie-3: #3a3a3c;
+  --superficie-elevada: #1c1c1e;
+  --separador: rgba(84, 84, 88, 0.55);
+  --barra: rgba(20, 20, 22, 0.72);
+
+  --texto: #ffffff;
+  --texto-2: rgba(235, 235, 245, 0.62);
+  --texto-3: rgba(235, 235, 245, 0.32);
+
+  --accent: #ff8a3d;
+  --accent-hover: #ff9d5c;
+  --accent-suave: rgba(255, 138, 61, 0.16);
+  --accent-contraste: #1a1204;
+
+  --sucesso: #32d74b;
+  --sucesso-suave: rgba(50, 215, 75, 0.16);
+  --perigo: #ff6961;
+  --perigo-suave: rgba(255, 105, 97, 0.16);
+  --info: #64d2ff;
+
+  /* Semântica financeira — usada nos gráficos e indicadores */
+  --c-lucro: #32d74b;
+  --c-despesa: #ff453a;
+  --c-bruto: #8e8e93;
+  --c-equipe: #ffd60a;
+  --c-equipe-suave: rgba(255, 214, 10, 0.16);
+
+  --sombra: 0 8px 30px rgba(0, 0, 0, 0.55);
+  --sombra-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+/* ---- Claro ---- */
+:root[data-tema='claro'] {
+  --bg: #f2f2f7;
+  --superficie: #ffffff;
+  --superficie-2: #f2f2f7;
+  --superficie-3: #e5e5ea;
+  --superficie-elevada: #ffffff;
+  --separador: rgba(60, 60, 67, 0.16);
+  --barra: rgba(249, 249, 251, 0.78);
+
+  --texto: #000000;
+  --texto-2: rgba(60, 60, 67, 0.6);
+  --texto-3: rgba(60, 60, 67, 0.32);
+
+  --accent: #ef6c14;
+  --accent-hover: #d95d09;
+  --accent-suave: rgba(239, 108, 20, 0.11);
+  --accent-contraste: #ffffff;
+
+  --sucesso: #248a3d;
+  --sucesso-suave: rgba(36, 138, 61, 0.11);
+  --perigo: #d70015;
+  --perigo-suave: rgba(215, 0, 21, 0.09);
+  --info: #0071a4;
+
+  --c-lucro: #29a84a;
+  --c-despesa: #e0342a;
+  --c-bruto: #b8b8bf;
+  --c-equipe: #e8a900;
+  --c-equipe-suave: rgba(232, 169, 0, 0.14);
+
+  --sombra: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --sombra-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Troca de tema — ativa só durante a transição
+   ========================================================================== */
+
+:root.trocando-tema,
+:root.trocando-tema *,
+:root.trocando-tema *::before,
+:root.trocando-tema *::after {
+  transition:
+    background-color var(--duracao-tema) var(--ease-suave),
+    border-color var(--duracao-tema) var(--ease-suave),
+    color var(--duracao-tema) var(--ease-suave),
+    fill var(--duracao-tema) var(--ease-suave),
+    box-shadow var(--duracao-tema) var(--ease-suave) !important;
+  transition-delay: 0ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 15px;
+  line-height: 1.47;
+  letter-spacing: -0.01em;
+  color: var(--texto);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--texto);
+  letter-spacing: -0.024em;
+  font-weight: 640;
+}
+
+h1 { font-size: 26px; line-height: 1.2; }
+h2 { font-size: 19px; line-height: 1.25; }
+h3 { font-size: 15px; }
+
+p { margin: 0; }
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--superficie-3);
+  border-radius: var(--raio-full);
+  border: 2.5px solid transparent;
+  background-clip: content-box;
+}
+
+/* Tabular para valores monetários alinharem em coluna */
+.num,
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

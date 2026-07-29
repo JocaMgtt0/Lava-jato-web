@@ -1,0 +1,20 @@
+{
+  "name": "Garage WM Lava Car",
+  "short_name": "Garage WM",
+  "description": "Controle de lavagens, gastos e resultado do lava-car",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icone.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

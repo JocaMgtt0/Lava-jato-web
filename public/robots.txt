@@ -1,0 +1,3 @@
+# Ferramenta interna do Garage WM Lava Car — sem indexação em buscadores.
+User-agent: *
+Disallow: /
