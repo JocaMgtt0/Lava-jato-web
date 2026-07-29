@@ -1,0 +1,4 @@
+# SPA (React Router): qualquer rota que não seja um arquivo real cai no
+# index.html, que aí sim decide o que renderizar no lado do cliente.
+# Sem isso, atualizar a página em /dia/2026-07-29 ou /relatorio dá 404 na Netlify.
+/*  /index.html  200
