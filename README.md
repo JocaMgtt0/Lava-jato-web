@@ -1,5 +1,15 @@
 # Garage WM Lava Car
 
+<p align="left">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white" alt="PWA">
+</p>
+
 Sistema web de gestão para lava-car: calendário de lavagens, controle de gastos (avulsos e fixos), equipe (fixa e temporária) e relatório financeiro com gráficos. Feito para uso diário no celular, com dados reais no Supabase (não fica só no navegador).
 
 Essa é a versão web/React do projeto — existe também uma versão desktop em Java/JavaFX, feita antes como prática. Aqui o modelo foi repensado do zero: **não existe conceito de "Agenda"**. Lavagem é um registro solto com uma data, exatamente como gasto sempre foi — você abre o calendário, clica no dia, lança. Sem passo de "criar agenda" antes.
